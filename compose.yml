@@ -1,0 +1,14 @@
+services:
+  nginx:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: ghcr.io/3az7qmfd/ngacme:main
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d # nginx 配置
+      - ./nginx/html:/usr/share/nginx/html # 站点文件
+      - ./nginx/acme:/var/lib/nginx/acme # ACME证书持久化的存放目录
+    restart: always
