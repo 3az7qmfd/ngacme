@@ -7,6 +7,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "443:443/udp"
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d # nginx 配置
       - ./nginx/html:/usr/share/nginx/html # 站点文件

@@ -28,6 +28,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "443:443/udp"
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d # nginx 配置
       - ./nginx/html:/usr/share/nginx/html # 站点文件
@@ -61,6 +62,9 @@ server {
 server {
     listen 443 ssl;
     http2 on;
+    listen 443 quic reuseport;
+    http3 on;
+
     server_name  yourdomain.com; # 改为自己的域名
 
     acme_certificate example;
