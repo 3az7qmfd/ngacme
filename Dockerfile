@@ -3,7 +3,7 @@
 # ================================
 FROM debian:bookworm-slim AS builder
 
-ARG NGINX_VERSION=1.29.4
+ARG NGINX_VERSION=1.29.1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc make curl git perl \
